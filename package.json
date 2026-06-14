@@ -1,11 +1,10 @@
 {
-	"name": "pyret-parley",
-	"displayName": "Pyret Interactive Editor for VSCode",
-	"description": "An interactive Pyret mode",
+	"name": "jarret-parley",
+	"displayName": "Jarret Interactive Editor for VSCode",
+	"description": "An interactive editor for the Jarret programming language (Java-flavored Pyret), modeled on jpolitz/pyret-parley-vscode and powered by a forked code.pyret.org build that includes the Jarret translator.",
 	"icon": "media/pyret-logo-128.png",
-	"version": "0.42.43",
-	"publisher": "PyretProgrammingLanguage",
-	"private": true,
+	"version": "0.1.0",
+	"publisher": "ulysses4ever",
 	"license": "Apache-2.0",
 	"engines": {
 		"vscode": "^1.74.0"
@@ -13,80 +12,93 @@
 	"categories": [
 		"Other"
 	],
+	"keywords": [
+		"jarret",
+		"pyret",
+		"dcic",
+		"education"
+	],
 	"activationEvents": [],
-	"repository": "https://github.com/jpolitz/pyret-parley-vscode",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ulysses4ever/jarret-parley-vscode.git"
+	},
+	"bugs": {
+		"url": "https://github.com/ulysses4ever/jarret-lang/issues"
+	},
+	"homepage": "https://github.com/ulysses4ever/jarret-lang#readme",
 	"files": [
 		"dist/web/**/*",
 		"media/pyret-logo-128.png",
 		"language-configuration.json",
-		"syntaxes/pyret.tmLanguage.json"
+		"syntaxes/jarret.tmLanguage.json"
 	],
 	"browser": "./dist/web/extension.js",
 	"contributes": {
 		"languages": [
 			{
-				"id": "pyret",
+				"id": "jarret",
 				"aliases": [
-					"Pyret",
-					"pyret"
+					"Jarret",
+					"jarret"
 				],
 				"extensions": [
-					".arr"
+					".jrt"
 				],
 				"configuration": "./language-configuration.json"
 			}
 		],
 		"grammars": [
 			{
-				"language": "pyret",
-				"scopeName": "source.arr",
-				"path": "./syntaxes/pyret.tmLanguage.json"
+				"language": "jarret",
+				"scopeName": "source.jrt",
+				"path": "./syntaxes/jarret.tmLanguage.json"
 			}
 		],
 		"configurationDefaults": {
 			"workbench.editorAssociations": {
-				"{git,gitlens,github}:/**/*.{arr}": "default"
+				"{git,gitlens,github}:/**/*.{jrt}": "default"
 			}
 		},
 		"menus": {
 			"editor/title/run": [
 				{
-					"command": "pyret-parley.run-file",
-					"when": "resourceExtname == .arr",
+					"command": "jarret-parley.run-file",
+					"when": "resourceExtname == .jrt",
 					"group": "navigation"
 				}
 			]
 		},
 		"commands": [
 			{
-				"command": "pyret-parley.run-file",
+				"command": "jarret-parley.run-file",
 				"title": "Run",
-				"category": "Pyret",
-				"when": "resourceExtname == .arr",
+				"category": "Jarret",
+				"when": "resourceExtname == .jrt",
 				"icon": "$(play)"
 			}
 		],
 		"customEditors": [
 			{
-				"viewType": "pyret-parley.cpo",
-				"displayName": "Pyret code.pyret.org",
+				"viewType": "jarret-parley.cpo",
+				"displayName": "Jarret code.jarret.org",
 				"selector": [
 					{
-						"filenamePattern": "*.arr"
+						"filenamePattern": "*.jrt"
 					}
 				]
 			}
 		],
 		"configuration": {
-			"title": "Pyret",
+			"title": "Jarret",
 			"properties": {
-				"pyret-parley.defaultContext": {
+				"jarret-parley.defaultContext": {
 					"type": "string",
 					"default": "starter2024",
 					"scope": "resource",
-					"description": "Controls the starter context used for new Pyret files. The string here appears after `use context` in the file."
+					"description": "Controls the starter context used for new Jarret files. The string here appears after `use context` in the file."
 				},
-				"pyret-parley.urlFileMode": {
+				"jarret-parley.urlFileMode": {
 					"type": "string",
 					"default": "all-remote",
 					"scope": "resource",
@@ -106,7 +118,6 @@
 		}
 	},
 	"scripts": {
-		"link-pyret": "ln -s node_modules/code.pyret.org/build build",
 		"vscode:prepublish": "npm run compile",
 		"compile": "webpack --mode production"
 	},

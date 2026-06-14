@@ -1,0 +1,33 @@
+// checks.jrt - @Check blocks exercising all assertion forms
+
+int square(int n) { return n * n; }
+int neg(int n) { return 0 - n; }
+
+@Check void testEquals() {
+    assertEquals(square(3), 9);
+    assertEquals(square(0), 0);
+    assertNotEquals(square(3), 8);
+}
+
+@Check void testBooleans() {
+    assertTrue(square(2) == 4);
+    assertFalse(square(2) == 5);
+    assertTrue(10 > 9 && 10 > 8);
+    assertFalse(10 > 9 && 10 > 11);
+}
+
+@Check void testSatisfies() {
+    assertSatisfies(square(4), (int n) -> n > 0);
+    assertSatisfies(neg(3), (int n) -> n < 0);
+}
+
+@Check void testRaises() {
+    assertRaises(() -> 1 / 0, "division by zero");
+}
+
+// Anonymous check block
+@Check {
+    assertEquals(1 + 1, 2);
+    assertEquals(10 - 3, 7);
+    assertEquals("a" + "b", "ab");
+}

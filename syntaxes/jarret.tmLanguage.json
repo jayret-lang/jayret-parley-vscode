@@ -1,0 +1,153 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Jarret",
+  "scopeName": "source.jrt",
+  "fileTypes": ["jrt"],
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#annotations" },
+    { "include": "#constants" },
+    { "include": "#numbers" },
+    { "include": "#keywords" },
+    { "include": "#types" },
+    { "include": "#functions" },
+    { "include": "#operators" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "match": "//.*$",
+          "name": "comment.line.double-slash.jrt"
+        },
+        {
+          "begin": "/\\*",
+          "end": "\\*/",
+          "name": "comment.block.jrt"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "begin": "\"",
+          "end": "\"",
+          "name": "string.quoted.double.jrt",
+          "patterns": [
+            {
+              "match": "\\\\.",
+              "name": "constant.character.escape.jrt"
+            }
+          ]
+        }
+      ]
+    },
+    "annotations": {
+      "patterns": [
+        {
+          "match": "@[A-Z][A-Za-z0-9_]*",
+          "name": "storage.type.annotation.jrt"
+        }
+      ]
+    },
+    "constants": {
+      "patterns": [
+        {
+          "match": "\\b(true|false|null|nothing|empty)\\b",
+          "name": "constant.language.jrt"
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "comment": "Rough numbers (Pyret-style ~3.14)",
+          "match": "(?<![A-Za-z0-9_])~-?[0-9]+(\\.[0-9]+)?",
+          "name": "constant.numeric.rough.jrt"
+        },
+        {
+          "comment": "Rational / decimal / integer",
+          "match": "(?<![A-Za-z0-9_])-?[0-9]+([/.][0-9]+)?",
+          "name": "constant.numeric.jrt"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "comment": "Control flow",
+          "match": "\\b(if|else|while|for|return|break|continue|switch|case|yield|do)\\b",
+          "name": "keyword.control.jrt"
+        },
+        {
+          "comment": "Declaration / module",
+          "match": "\\b(data|import|as|from|file|provide)\\b",
+          "name": "keyword.declaration.jrt"
+        },
+        {
+          "comment": "Storage modifiers",
+          "match": "\\b(rec|new|let|var)\\b",
+          "name": "storage.modifier.jrt"
+        },
+        {
+          "comment": "Jarret expression forms",
+          "match": "\\b(block|ask|otherwise|spy)\\b",
+          "name": "keyword.other.jrt"
+        },
+        {
+          "comment": "Table column operations",
+          "match": "\\b(sieve|order|extend|select|extract|using|ascending|descending|row|table)\\b",
+          "name": "keyword.other.table.jrt"
+        }
+      ]
+    },
+    "types": {
+      "patterns": [
+        {
+          "comment": "Primitive type annotations",
+          "match": "\\b(int|double|boolean|String|void|Object|Number|Any)\\b",
+          "name": "storage.type.primitive.jrt"
+        },
+        {
+          "comment": "User-defined / parameterized types (capitalized identifiers)",
+          "match": "\\b[A-Z][A-Za-z0-9_]*\\b",
+          "name": "entity.name.type.jrt"
+        }
+      ]
+    },
+    "functions": {
+      "patterns": [
+        {
+          "comment": "Built-in print/assertion calls",
+          "match": "\\b(print|tostring|assertEquals|assertNotEquals|assertTrue|assertFalse|assertRaises|assertSatisfies)(?=\\s*\\()",
+          "name": "support.function.builtin.jrt"
+        },
+        {
+          "comment": "Function/method call: identifier immediately followed by (",
+          "match": "\\b([a-z_][A-Za-z0-9_-]*)(?=\\s*\\()",
+          "name": "entity.name.function.jrt"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "comment": "Lambda arrow",
+          "match": "->",
+          "name": "storage.type.function.arrow.jrt"
+        },
+        {
+          "comment": "Comparison and logical",
+          "match": "(==|!=|<=|>=|&&|\\|\\||<|>|!)",
+          "name": "keyword.operator.comparison.jrt"
+        },
+        {
+          "comment": "Arithmetic and assignment",
+          "match": "(\\+|\\-|\\*|/|%|=)",
+          "name": "keyword.operator.arithmetic.jrt"
+        }
+      ]
+    }
+  }
+}

@@ -1,5 +1,7 @@
 .vscode-test-web
 *.swp
+*.vsix
 out
 dist
 node_modules
+build

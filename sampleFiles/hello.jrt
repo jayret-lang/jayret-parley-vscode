@@ -1,0 +1,22 @@
+// hello.jrt - Basic arithmetic and printing
+
+String greeting = "Hello, Jarret!";
+print(greeting)
+
+// Arithmetic uses Pyret's exact rational numbers:
+// 0.1 + 0.2 is exactly 0.3 (no floating-point surprises)
+Number result = 0.1 + 0.2;
+print(result)   // prints 3/10
+
+int x = 6;
+int y = 7;
+int product = x * y;
+print(product)
+
+@Check void testBasics() {
+    assertEquals(0.1 + 0.2, 0.3);
+    assertEquals(6 * 7, 42);
+    assertEquals("Hello" + ", " + "world!", "Hello, world!");
+    assertTrue(10 > 9);
+    assertFalse(10 == 9);
+}
