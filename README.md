@@ -1,9 +1,9 @@
 # jayret-parley-vscode
 
-An interactive Visual Studio Code editor for [Jayret](https://github.com/ulysses4ever/jayret-lang),
+An interactive Visual Studio Code editor for [Jayret](https://github.com/jayret-lang/jayret-lang),
 modeled on [jpolitz/pyret-parley-vscode](https://github.com/jpolitz/pyret-parley-vscode)
 and powered by a Jayret-flavored
-[code.pyret.org](https://github.com/ulysses4ever/code.jayret.org) build
+[code.pyret.org](https://github.com/jayret-lang/code.jayret.org) build
 embedded into a VSCode webview.
 
 Opens `.jrt` files in a custom editor that runs the full Jayret
@@ -18,9 +18,9 @@ The substantive differences:
 
 - Source extension is `.jrt` (Jayret), not `.arr` (Pyret).
 - The embedded compiler bundle comes from
-  [`ulysses4ever/code.jayret.org`](https://github.com/ulysses4ever/code.jayret.org)
+  [`jayret-lang/code.jayret.org`](https://github.com/jayret-lang/code.jayret.org)
   — a fork of `code.pyret.org` whose `pyret-lang` dependency is pinned
-  to our [`ulysses4ever/jayret-lang`](https://github.com/ulysses4ever/jayret-lang)
+  to our [`jayret-lang/jayret-lang`](https://github.com/jayret-lang/jayret-lang)
   fork. That bundle includes the Jayret translator, so loading a `.jrt`
   source in the webview routes through `parse-java` rather than
   `parse-pyret`.
@@ -69,9 +69,9 @@ npx vscode-test-web --browserType=chromium --extensionDevelopmentPath . ./sample
 ## Issues
 
 Jayret-language issues belong in
-[ulysses4ever/jayret-lang](https://github.com/ulysses4ever/jayret-lang/issues).
+[jayret-lang/jayret-lang](https://github.com/jayret-lang/jayret-lang/issues).
 Extension-specific issues go to
-[ulysses4ever/jayret-parley-vscode](https://github.com/ulysses4ever/jayret-parley-vscode/issues).
+[jayret-lang/jayret-parley-vscode](https://github.com/jayret-lang/jayret-parley-vscode/issues).
 
 ## License
 
