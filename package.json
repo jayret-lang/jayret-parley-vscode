@@ -3,7 +3,7 @@
 	"displayName": "Jayret Interactive Editor for VSCode",
 	"description": "An interactive editor for the Jayret programming language (Java-flavored Pyret), modeled on jpolitz/pyret-parley-vscode and powered by a forked code.pyret.org build that includes the Jayret translator.",
 	"icon": "media/jayret-logo-128.png",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"publisher": "ulysses4ever",
 	"license": "Apache-2.0",
 	"engines": {
