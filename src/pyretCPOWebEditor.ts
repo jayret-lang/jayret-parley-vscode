@@ -360,9 +360,11 @@ export function makePyretPane(
       }
       let docText = document.getText();
       if(docText === "") {
-        const config = vscode.workspace.getConfiguration('jayret-parley');
-        let context = config.get('defaultContext');
-        docText = `use context ${context}\n\n`;
+        // For empty files, seed a short Jayret comment. Upstream pyret-parley
+        // injected `use context <name>` here, but that is a Pyret directive
+        // that parse-java does not recognise; leaving it in caused every
+        // new .jrt file to fail with a parse error on its first line.
+        docText = '// New Jayret file\n';
         const edit = new vscode.WorkspaceEdit();
         edit.insert(document.uri, new vscode.Position(0, 0), docText);
         await vscode.workspace.applyEdit(edit);
