@@ -206,6 +206,7 @@ export function makePyretPane(
     pane.webview.options = {
       enableScripts: true,
     };
+    pane.iconPath = vscode.Uri.joinPath(context.extensionUri, 'media', 'jayret-logo-128.png');
     const showDefinitions = type === 'cpo';
     pane.webview.html = getHtmlForWebview(context, pane.webview, showDefinitions);
 
