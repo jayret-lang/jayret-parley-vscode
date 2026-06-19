@@ -3,7 +3,7 @@
 	"displayName": "Jayret Interactive Editor for VSCode",
 	"description": "An interactive VSCode editor for Jayret — a hard fork of Pyret with a Java-flavored surface syntax. Embeds a code.jayret.org build (with the Jayret translator) inside a webview pane and gives .jrt files a CodeMirror editor + REPL.",
 	"icon": "media/jayret-logo-128.png",
-	"version": "0.1.6",
+	"version": "0.1.7",
 	"publisher": "ulysses4ever",
 	"license": "Apache-2.0",
 	"engines": {

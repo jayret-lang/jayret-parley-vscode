@@ -120,7 +120,7 @@
       "patterns": [
         {
           "comment": "Built-in print/assertion calls",
-          "match": "\\b(print|tostring|assertEquals|assertNotEquals|assertTrue|assertFalse|assertRaises|assertSatisfies)(?=\\s*\\()",
+          "match": "\\b(print|tostring|assertEquals|assertNotEquals|assertTrue|assertFalse|assertRaises|assertSatisfies|loadTable)(?=\\s*\\()",
           "name": "support.function.builtin.jrt"
         },
         {
