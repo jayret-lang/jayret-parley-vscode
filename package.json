@@ -1,9 +1,9 @@
 {
 	"name": "jayret-parley",
 	"displayName": "Jayret Interactive Editor for VSCode",
-	"description": "An interactive editor for the Jayret programming language (Java-flavored Pyret), modeled on jpolitz/pyret-parley-vscode and powered by a forked code.pyret.org build that includes the Jayret translator.",
+	"description": "An interactive VSCode editor for Jayret — a hard fork of Pyret with a Java-flavored surface syntax. Embeds a code.jayret.org build (with the Jayret translator) inside a webview pane and gives .jrt files a CodeMirror editor + REPL.",
 	"icon": "media/jayret-logo-128.png",
-	"version": "0.1.5",
+	"version": "0.1.6",
 	"publisher": "ulysses4ever",
 	"license": "Apache-2.0",
 	"engines": {
@@ -24,9 +24,9 @@
 		"url": "https://github.com/jayret-lang/jayret-parley-vscode.git"
 	},
 	"bugs": {
-		"url": "https://github.com/jayret-lang/jayret-lang/issues"
+		"url": "https://github.com/jayret-lang/jayret-parley-vscode/issues"
 	},
-	"homepage": "https://github.com/jayret-lang/jayret-lang#readme",
+	"homepage": "https://jayret-lang.github.io/",
 	"files": [
 		"dist/web/**/*",
 		"media/jayret-logo-128.png",
